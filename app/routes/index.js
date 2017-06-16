@@ -9,10 +9,10 @@ router.get('/episodes', (req, res) => {
 	rss
 		.fetchData(decodedUrl)
 		.then(episodes => {
-			res.send(episodes);
+			res.status(200).send(episodes);
 		})
 		.catch(err => {
-			res.send('Could not parse sent URL.');
+			res.status(500).send('Could not parse sent URL.');
 		});
 });
 
