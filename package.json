@@ -13,17 +13,18 @@
   },
   "devDependencies": {
     "chai": "^4.0.2",
+    "chai-http": "^3.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.4.2",
-    "nodemon": "^1.11.0",
-    "sinon": "^2.3.4"
+    "nodemon": "^1.11.0"
   },
-  "engines" : {
-    "node" : ">=6.9.0"
+  "engines": {
+    "node": ">=6.9.0"
   },
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "mocha test",
-    "test:coverage": "istanbul cover mocha $(find ./app -name \"*.test.js\" -not -path \"./node_modules/*\")"
+    "test": "mocha 'app/**/*.spec.js'",
+    "test:watch": "yarn test -- --watch",
+    "test:coverage": "istanbul cover _mocha $(find ./ -name \"*.spec.js\" -not -path \"./node_modules/*\")"
   }
 }
