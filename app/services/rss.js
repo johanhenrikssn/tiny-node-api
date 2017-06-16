@@ -31,7 +31,7 @@ module.exports = () => {
 					let episode = parser.read();
 					const meta = parser.meta;
 					while (episode) {
-						episodes.push(episode.title);
+						episodes.push(episode);
 						episode = parser.read();
 					}
 				});
