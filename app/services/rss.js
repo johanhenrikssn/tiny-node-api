@@ -13,7 +13,7 @@ module.exports = () => {
 
 				// Handle request error
 				req.on('error', err => {
-					reject({ status: 500, desc: 'Request cannot be fulfilled' });
+					reject(err);
 				});
 
 				// If result is correct, pipe response to feedparser
@@ -23,7 +23,7 @@ module.exports = () => {
 
 				// Handle parser error
 				parser.on('error', err => {
-					reject({ status: 400, desc: 'Specified URL is not a feed or is not correctly formated.' });
+					reject(err);
 				});
 
 				// Parse feed into episodes
