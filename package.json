@@ -6,7 +6,9 @@
   "author": "johanhenrikssn <johan.c.henriksson@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "express": "^4.15.3",
+    "feedparser": "^2.2.0",
     "request": "^2.81.0"
   },
   "devDependencies": {
