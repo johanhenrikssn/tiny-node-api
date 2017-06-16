@@ -6,19 +6,24 @@ module.exports = () => {
 	return {
 		fetchData: function(feedurl) {
 			return new Promise(function(resolve, reject) {
-				var episodes = [];
+				let episodes = [];
 
 				const req = request(feedurl);
 				const parser = new FeedParser();
+
+				// Handle request error
+				req.on('error', err => {
+					reject({ status: 500, desc: 'Request cannot be fulfilled' });
+				});
 
 				// If result is correct, pipe response to feedparser
 				req.on('response', res => {
 					req.pipe(parser);
 				});
 
-				// Resolve promise when rss feed is done parsing
-				parser.on('end', () => {
-					resolve(episodes);
+				// Handle parser error
+				parser.on('error', err => {
+					reject({ status: 400, desc: 'Specified URL is not a feed or is not correctly formated.' });
 				});
 
 				// Parse feed into episodes
@@ -29,6 +34,11 @@ module.exports = () => {
 						episodes.push(episode.title);
 						episode = parser.read();
 					}
+				});
+
+				// Resolve promise when rss feed is done parsing
+				parser.on('end', () => {
+					resolve(episodes);
 				});
 			});
 		}

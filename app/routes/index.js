@@ -12,7 +12,7 @@ router.get('/episodes', (req, res) => {
 			res.status(200).send(episodes);
 		})
 		.catch(err => {
-			res.status(500).send('Could not parse sent URL.');
+			res.status(err.status).send(err.desc);
 		});
 });
 
