@@ -8,8 +8,8 @@ router.get('/episodes', (req, res) => {
 
 	rss
 		.fetchData(decodedUrl)
-		.then(() => {
-			res.send('fetch episodes');
+		.then(episodes => {
+			res.send(episodes);
 		})
 		.catch(err => {
 			res.send('Could not parse sent URL.');
