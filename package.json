@@ -15,6 +15,7 @@
   "devDependencies": {
     "chai": "^4.0.2",
     "chai-http": "^3.0.0",
+    "eslint": "^3.19.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.4.2",
     "nodemon": "^1.11.0"
@@ -24,6 +25,7 @@
   },
   "scripts": {
     "dev": "nodemon server.js",
+    "lint": "eslint --ignore-path .gitignore .",
     "test": "mocha 'app/**/*.spec.js'",
     "test:watch": "yarn test -- --watch",
     "test:coverage": "istanbul cover _mocha $(find ./ -name \"*.spec.js\" -not -path \"./node_modules/*\")"

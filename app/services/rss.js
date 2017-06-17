@@ -17,7 +17,7 @@ module.exports = () => {
 				});
 
 				// If result is correct, pipe response to feedparser
-				req.on('response', res => {
+				req.on('response', () => {
 					req.pipe(parser);
 				});
 
@@ -29,7 +29,6 @@ module.exports = () => {
 				// Parse feed into episodes
 				parser.on('readable', () => {
 					let episode = parser.read();
-					const meta = parser.meta;
 					while (episode) {
 						episodes.push(episode);
 						episode = parser.read();
