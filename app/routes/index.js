@@ -6,6 +6,11 @@ const rss = require('../services/rss')();
 router.get('/episodes', (req, res) => {
 	const { feedurl } = req.query;
 
+	if (!feedurl)
+		return res
+			.status(HTTPStatus.UNPROCESSABLE_ENTITY)
+			.send('Missing query parameter feedurl');
+
 	rss
 		.fetchData(feedurl)
 		.then(episodes => {
