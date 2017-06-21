@@ -1,7 +1,7 @@
 const express = require('express');
 const HTTPStatus = require('http-status');
 const router = express.Router({ mergeParams: true });
-const rss = require('../services/rss')();
+const rss = require('../services/rss');
 
 router.get('/episodes', (req, res) => {
 	const { feedurl } = req.query;
