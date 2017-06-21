@@ -1,17 +1,14 @@
 var server = require('../../server');
 
-describe('server', function() {
+describe('server tests', function() {
 	it('it should launch', done => {
-		before(function() {
-			server.listen(3000);
-		});
-		done();
+		server
+			.listen(3000)
+			.on('error', err => done(err))
+			.on('listening', () => done());
 	});
 
 	it('it should close', done => {
-		after(function() {
-			server.close();
-		});
-		done();
+		server.close(err => done(err));
 	});
 });
