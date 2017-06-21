@@ -1,8 +1,8 @@
 {
-  "name": "node-assignment",
+  "name": "tiny-node-api",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/johanhenrikssn/node-assignment.git",
+  "main": "server.js",
+  "repository": "https://github.com/johanhenrikssn/tiny-node-api.git",
   "author": "johanhenrikssn <johan.c.henriksson@gmail.com>",
   "license": "MIT",
   "dependencies": {
