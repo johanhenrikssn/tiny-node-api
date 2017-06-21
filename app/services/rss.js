@@ -1,6 +1,5 @@
 const FeedParser = require('feedparser');
 const request = require('request');
-const Promise = require('bluebird');
 
 module.exports.fetchData = feedurl => {
 	return new Promise(function(resolve, reject) {
