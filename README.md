@@ -1,4 +1,4 @@
-# node assignment
+# tiny-node-api
 A tiny API that takes a RSS feed, parses it and returns a list of episodes from that feed.
 
 ## Run
